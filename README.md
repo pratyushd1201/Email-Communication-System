@@ -1,1 +1,1 @@
-# Email-Communication-System
+# run npm install and npm start in both folders
