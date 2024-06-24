@@ -1,0 +1,74 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6rem;
+}
+.task__list__head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50vw;
+}
+.task__list__head button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #3acbf7;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.data__table__box {
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 50vw;
+  margin-top: 1rem;
+  padding: 1.6rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+  color: rgb(71, 69, 69);
+  overflow-y: auto;
+  overflow-x: auto;
+}
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+}
+
+table th,
+table td {
+  padding: 0.8em;
+  text-align: center;
+}
+
+table th {
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+.update__member {
+  color: rgb(56, 50, 50);
+  text-decoration: underline;
+  padding: 8px 16px;
+}
+.delete__item {
+  padding: 10px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff;
+  background-color: rgb(218, 17, 17);
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
