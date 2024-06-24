@@ -1,1 +1,1 @@
-# run npm install and npm start in both folders
+# run node server.js and npm start 
