@@ -6,7 +6,7 @@ const app = express();
 var cors = require('cors');
 const PORT = process.env.PORT || 3000;
 
-const postmarkClient = new postmark.ServerClient('85ee4ea8-1d26-44b2-b843-4507c328e6d4');
+const postmarkClient = new postmark.ServerClient('//My Postmark Token');
 app.options('*', cors())
 app.use(bodyParser.json());
 
