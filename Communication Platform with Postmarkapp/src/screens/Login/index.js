@@ -59,7 +59,7 @@ const Login = () => {
   return (
     <div className="login">
       <form className="login__form" onSubmit={(event) => handleSubmit(event)}>
-        <h1>Email Communication System</h1>
+        <h1>Email Communication System using Postmark API</h1>
         <input
           type="username"
           placeholder="Username"
