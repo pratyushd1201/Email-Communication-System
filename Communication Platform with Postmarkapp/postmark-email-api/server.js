@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const postmark = require('postmark');
+const path = require('path');
 
 const app = express();
 var cors = require('cors');
@@ -27,8 +28,8 @@ app.post('/api/send-email', async (req, res) => {
 
     try {
         const response = await postmarkClient.sendEmailWithTemplate({
-            From: 'pd.20u10367@btech.nitdgp.ac.in', // Replace with your sender email
-            To: 'pd.20u10367@btech.nitdgp.ac.in', // Replace with your recipient email
+            From: 'pratyush.d1201@gmail.com', // Replace with your sender email
+            To: 'pratyush.d1201@gmail.com', // Replace with your recipient email
             TemplateId: 36369499, // Replace with your template ID
             TemplateModel: {
                 name: name,
@@ -42,6 +43,42 @@ app.post('/api/send-email', async (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
+const fs = require('fs');
+const http = require('http');
+
+// Prefer serving the production build if it exists, otherwise serve the raw public folder.
+const buildDir = path.join(__dirname, '..', 'build');
+const publicDir = fs.existsSync(buildDir) ? buildDir : path.join(__dirname, '..', 'public');
+
+// Intercept raw requests that include %PUBLIC_URL% before Express attempts to decode params.
+app.use((req, res, next) => {
+    if (req.originalUrl && req.originalUrl.indexOf('/%PUBLIC_URL%/') === 0) {
+        const rewritten = req.originalUrl.replace('/%PUBLIC_URL%', '');
+        return res.redirect(rewritten);
+    }
+    next();
+});
+
+app.use(express.static(publicDir));
+
+// Fallback to index.html for non-API routes (so client-side routing works)
+app.get(/^(?!\/api\/).*/, (req, res) => {
+    res.sendFile(path.join(publicDir, 'index.html'));
+});
+
+// Create an HTTP server that rewrites any literal %PUBLIC_URL% segments
+// before Express sees the request so Express doesn't attempt to decode them.
+const server = http.createServer((req, res) => {
+    try {
+        if (req.url && req.url.indexOf('/%PUBLIC_URL%/') === 0) {
+            req.url = req.url.replace('/%PUBLIC_URL%', '');
+        }
+    } catch (e) {
+        // If anything unexpected happens, continue and let Express handle errors.
+    }
+    app(req, res);
+});
+
+server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

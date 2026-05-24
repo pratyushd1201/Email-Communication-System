@@ -1,0 +1,115 @@
+# Ignore secrets and local credentials
+secret.yaml
+*.env
+.env
+
+# kubeconfig / keys / certs
+kubeconfig
+*.pem
+*.key
+*.crt
+
+# editor/temp files
+.DS_Store
+*.log
+*.swp
+*.tmp
+
+# Node
+node_modules/
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependency directories
+jspm_packages/
+
+# Build outputs
+build/
+dist/
+out/
+coverage/
+coverage/*
+.cache/
+.next/
+.nuxt/
+.vite/
+.parcel-cache/
+
+# Environment / secrets
+.env
+.env.*
+.env.local
+secret.yaml
+k8s/secret.yaml
+.postmark.env
+
+# Docker
+.Dockerfile.swp
+.dockerignore
+docker-compose*.yml
+docker-compose*.yaml
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+lerna-debug.log
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Editor/IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.tmp
+
+# Kubernetes / kubeconfig / certs / keys
+kubeconfig
+.kube/
+*.kubeconfig
+*.pem
+*.key
+*.crt
+*.pfx
+
+# Terraform / cloud tool state
+.terraform/
+terraform.tfstate
+terraform.tfstate.*
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+
+# CI/CD / local credentials
+.aws/
+.azure/
+gcloud/
+*.credentials
+*.secret
+
+# Package manager lockfiles to keep (do NOT ignore):
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Misc
+*.tgz
+*.zip
+*.tar.gz
+*.cache
+coverage/
+.idea/
+.vagrant/
+.envrc
